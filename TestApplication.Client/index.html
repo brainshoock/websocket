@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" />
+</head>
+<body onload="onload()">
+    <div class="container">
+        <div id="top10">
+            Топ-10 цен:        
+        </div>
+        <hr />
+        <textarea id="dataArea" class="form-control" rows="5">{id:6, price:20, amount: 1}</textarea>
+        <button type="button" onclick="senddata()" class="btn btn-primary">Отправить данные</button>
+    </div>
+
+
+    <script>
+        var connect;
+
+        function onload()
+        {
+            connect = new WebSocket('ws://localhost:8088/wstest');
+            connect.onopen = function (e) { wsOnOpen(e); };
+            connect.onclose = function (e) { wsOnClose(e); };
+            connect.onerror = function (e) { wsOnError(e); };
+            connect.onmessage = function (e) { wsOnMess(e); };
+        }
+
+        function wsOnMess(e)
+        {
+            console.log('wsOnMess, e:', e);
+            var responseData = JSON.parse(e.data);
+            if (responseData.Status === "OK" && responseData.Command === 'Top10')
+            {
+                document.getElementById('top10').innerHTML = 'Топ-10 цен:<br>' + JSON.stringify(responseData.Data);
+            }
+
+            if(responseData.Status === "ERROR")
+            {
+                alert('Ошибка!')
+            }
+        };
+        function senddata()
+        {
+            if (connect && connect.readyState === connect.OPEN)
+            {
+                connect.send(document.getElementById('dataArea').value);
+            } else
+            {
+                alert('No connection');
+            }
+        }
+
+        function wsOnOpen(e)
+        {
+            console.log('open:', 'Connection open');
+        };
+
+        function wsOnClose(e)
+        {
+            console.log('e.code:', e.code);
+            if (e.wasClean)
+            {
+                console.log('close:', 'User close connection');
+            } else
+            {
+                console.log('close:', 'Connection is lost');
+            }
+        };
+
+        function wsOnError(e)
+        {
+            console.log('wsOnError, e:', e);
+        };
+    </script>
+</body>
+</html>
