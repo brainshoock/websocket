@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApplication.Server", "TestApplication.Server.csproj", "{31A5E413-1E19-4C71-A909-C6B6DB6615D1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApplication.Server", "TestApplication.Server\TestApplication.Server.csproj", "{31A5E413-1E19-4C71-A909-C6B6DB6615D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApplication.Server.Contracts", "..\TestApplication.Server.Contracts\TestApplication.Server.Contracts.csproj", "{95CAAF50-C4E2-4579-B4C8-CBD278F32473}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApplication.Server.Contracts", "TestApplication.Server.Contracts\TestApplication.Server.Contracts.csproj", "{95CAAF50-C4E2-4579-B4C8-CBD278F32473}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApplication.Server.Entities", "..\TestApplication.Server.Entities\TestApplication.Server.Entities.csproj", "{C0BC2AC1-85A8-448C-9140-7B4591D70C42}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApplication.Server.Entities", "TestApplication.Server.Entities\TestApplication.Server.Entities.csproj", "{C0BC2AC1-85A8-448C-9140-7B4591D70C42}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApplication.Client", "..\TestApplication.Client\TestApplication.Client.csproj", "{1B027D6E-3910-437C-AEF7-2FC52590C5F8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApplication.Client", "TestApplication.Client\TestApplication.Client.csproj", "{1B027D6E-3910-437C-AEF7-2FC52590C5F8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
